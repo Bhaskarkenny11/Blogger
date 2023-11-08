@@ -1,0 +1,22 @@
+<%= form_with(model: categoroy) do |form| %>
+  <% if categoroy.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(categoroy.errors.count, "error") %> prohibited this categoroy from being saved:</h2>
+
+      <ul>
+        <% categoroy.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
