@@ -1,5 +1,5 @@
 class CategoroysController < ApplicationController
-  before_action :set_categoroy, only: %i[ show edit update destroy ]
+  before_action :set_categoroy, only: %i[ show edit update destroy create  ]
 
   # GET /categoroys or /categoroys.json
   def index
