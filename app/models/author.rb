@@ -1,3 +1,3 @@
 class Author < ApplicationRecord
-    has_many :articles, optional: true
+    has_many :articles
 end
