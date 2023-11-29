@@ -1,3 +1,3 @@
 class Categoroy < ApplicationRecord
-    has_many :articles, :optional => true
+    has_many :articles, optional: true
 end
