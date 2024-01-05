@@ -1,6 +1,6 @@
 class AuthorsController < ApplicationController
   before_action :set_author, only: %i[ show edit update destroy ]
-    
+
   # GET /authors or /authors.json
   def index
     @authors = Author.all
@@ -8,6 +8,7 @@ class AuthorsController < ApplicationController
 
   # GET /authors/1 or /authors/1.json
   def show
+    # @author = Author.find(author_id)
   end
 
   # GET /authors/new
@@ -21,7 +22,7 @@ class AuthorsController < ApplicationController
 
   # POST /authors or /authors.json
   def create
-    @author = Author.new(author_params)
+    @author = Author.find(params[:id])
 
     respond_to do |format|
       if @author.save
@@ -58,13 +59,14 @@ class AuthorsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_author
-      @author = Author.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def author_params
-      params.require(:author).permit(:name, :bio)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_author
+    @author = Author.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def author_params
+    params.require(:author).permit(:name, :bio)
+  end
 end
